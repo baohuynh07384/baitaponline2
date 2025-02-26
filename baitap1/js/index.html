@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background and Circle Animation</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border-radius: 50%;
+            animation: grow 2s infinite alternate;
+        }
+    </style>
+    <div class="circle"></div>
+    <script>
+        const circle = document.querySelector('.circle');
+
+        let size = 10;
+        const maxSize = 500;
+        const minSize = 10;
+
+        function animateCircle() {
+            if (size < maxSize) {
+                size += 10;
+            } else {
+                size = minSize;
+            }
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+        }
+
+        setInterval(animateCircle, 100);
+
+    </script>
+</body>
+
+</html>
